@@ -3,7 +3,17 @@
 ## Start MQTT server
 
 ```
-docker run -it -p 1883:1883 -p 9001:9001 eclipse-mosquitto
+echo "user:pass" > mosquitto_passwd
+mosquitto_passwd -U mosquitto_passwd
+```
+
+```
+docker run \
+-ti \
+-p 1883:1883 \
+-p 9001:9001 \
+-v $(pwd):/mosquitto/config \
+eclipse-mosquitto
 ```
 
 ## Run sample
@@ -11,3 +21,6 @@ docker run -it -p 1883:1883 -p 9001:9001 eclipse-mosquitto
 ```
 ./sample_mqtt.py
 ```
+
+
+mosquitto.conf:/mosquitto/config/mosquitto.conf

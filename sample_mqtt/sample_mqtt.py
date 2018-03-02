@@ -5,7 +5,8 @@ import paho.mqtt.client as paho
 
 broker = 'localhost'
 queue = 'house/bulb1'
-
+username = "user"
+password = "pass"
 
 def on_message(client, userdata, message):
     print('received message = {}'.format(str(message.payload.decode('utf-8'))))
@@ -13,6 +14,7 @@ def on_message(client, userdata, message):
 
 client = paho.Client('client-001')
 client.on_message = on_message
+client.username_pw_set(username=username, password=password)
 
 print('connecting to broker {}'.format(broker))
 client.connect(broker)
