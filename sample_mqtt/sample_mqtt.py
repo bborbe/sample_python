@@ -7,7 +7,6 @@ broker = 'localhost'
 queue = 'house/bulb1'
 
 
-# define callback
 def on_message(client, userdata, message):
     print('received message = {}'.format(str(message.payload.decode('utf-8'))))
 
@@ -28,5 +27,5 @@ client.publish(queue, 'hello world')
 time.sleep(4)
 
 print('done')
-client.disconnect()  # disconnect
-client.loop_stop()  # stop loop
+client.disconnect()
+client.loop_stop()
