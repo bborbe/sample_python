@@ -15,8 +15,14 @@ driver = cls(
     region='pb-test',
 )
 
+print('sizes:')
 for size in driver.list_sizes():
     print('size={}'.format(size))
 
+print('images:')
 for image in driver.list_images():
     print('image={}'.format(image))
+
+print('nodes:')
+for node in driver.list_nodes():
+    print('node={}'.format(node))
