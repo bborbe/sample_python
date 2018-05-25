@@ -5,7 +5,7 @@ import paho.mqtt.client as paho
 
 
 def on_message(client, userdata, message):
-    print('received message = {}'.format(str(message.payload.decode('utf-8'))))
+    print('{} received message = {}'.format(message.topic, str(message.payload.decode('utf-8'))))
 
 
 broker = 'localhost'
